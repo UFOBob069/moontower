@@ -12,7 +12,7 @@ export default function About() {
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Our Mission</h3>
               <p className="text-gray-600 leading-relaxed">
                 The MoonTower Business Podcast stands at the intersection of innovation and entrepreneurship, 
-                delivering unparalleled insights from the heart of Texas' most dynamic business ecosystem. 
+                delivering unparalleled insights from the heart of Texas&apos; most dynamic business ecosystem. 
                 Through in-depth conversations with industry titans, disruptive innovators, and thought leaders, 
                 we explore the cutting-edge developments shaping the future of business and technology.
               </p>
@@ -22,7 +22,7 @@ export default function About() {
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Our Impact</h3>
               <p className="text-gray-600 leading-relaxed">
                 With a rapidly growing audience across multiple platforms and listeners in over 50 countries, 
-                we've become a trusted voice in the business podcast landscape. Our episodes have featured 
+                we&apos;ve become a trusted voice in the business podcast landscape. Our episodes have featured 
                 Fortune 500 executives, successful entrepreneurs, and innovative startups, providing actionable 
                 insights and behind-the-scenes perspectives on building and scaling successful enterprises.
               </p>
