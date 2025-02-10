@@ -36,12 +36,12 @@ export default function ProductPage() {
 
             <div className="space-y-4">
               <p className="text-gray-300">
-                Add a stylish and inspiring touch to your space with our "Positive Cash Flow" pillow.
+                Add a stylish and inspiring touch to your space with our &quot;Positive Cash Flow&quot; pillow.
               </p>
               
               <p className="text-gray-400">
-                Featuring the phrase "Happiness is Positive Cash Flow" embroidered in orange on a navy blue pillow, 
-                it's a great reminder of financial success and the value of a balanced life.
+                Featuring the phrase &quot;Happiness is Positive Cash Flow&quot; embroidered in orange on a navy blue pillow, 
+                it&apos;s a great reminder of financial success and the value of a balanced life.
               </p>
               
               <p className="text-gray-400">
