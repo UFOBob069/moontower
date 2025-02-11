@@ -4,7 +4,7 @@ import { FaLinkedin, FaTwitter } from 'react-icons/fa'
 export default function Team() {
   const teamMembers = [
     {
-      name: "Joseph O&apos;Bell",
+      name: "Joseph O'Bell",
       role: "Host & Executive Producer",
       image: "/joey.jpg",
       bio: "An attorney and entrepreneur bringing unique perspectives on both legal and business aspects of entrepreneurship. General Counsel for American Metals Recovery and Recycling Inc. and Multiband Global.",
