@@ -1,7 +1,6 @@
 import { 
   FaSpotify, 
-  FaApple, 
-  FaGoogle, 
+  FaApple,  
   FaYoutube, 
   FaRss 
 } from 'react-icons/fa'
@@ -18,12 +17,6 @@ export default function ListenNow() {
       name: 'Apple Podcasts',
       icon: FaApple,
       url: 'https://podcasts.apple.com/id1507993317',
-      color: 'hover:text-[#FFD700]'
-    },
-    {
-      name: 'Google Podcasts',
-      icon: FaGoogle,
-      url: 'https://podcasts.google.com/YOUR_GOOGLE_ID',
       color: 'hover:text-[#FFD700]'
     },
     {
