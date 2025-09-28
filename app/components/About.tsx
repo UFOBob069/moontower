@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function About() {
   return (
@@ -57,13 +58,15 @@ export default function About() {
               </Link>
               
               <div className="text-center">
-                <img 
+                <Image 
                   src="/spacex.jpg" 
                   alt="SpaceX Starship Base" 
+                  width={400}
+                  height={300}
                   className="w-full max-w-md mx-auto rounded-lg shadow-lg"
                 />
                 <p className="mt-4 text-gray-600 text-sm italic">
-                  Host Joseph O'Bell breaking ground on starship base
+                  Host Joseph O&apos;Bell breaking ground on starship base
                 </p>
               </div>
             </div>

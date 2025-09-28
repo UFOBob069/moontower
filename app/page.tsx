@@ -79,18 +79,47 @@ const EarningsEstimator = () => {
     zipCode: '',
     bedrooms: '',
     bathrooms: '',
+    squareFootage: '',
     propertyType: 'apartment',
     email: '',
     phone: '',
     amenities: [],
   });
 
-  const [showEstimate, setShowEstimate] = useState(false);
-  const [estimate, setEstimate] = useState(null);
+  const [estimate, setEstimate] = useState<{
+    furnishedFinder: {
+      monthlyGross: number;
+      annualFee: number;
+      monthlyNet: number;
+    };
+    competitors: {
+      airbnb: {
+        monthlyGross: number;
+        hostFees: number;
+        serviceFees: number;
+        totalFees: number;
+        monthlyNet: number;
+      };
+      vrbo: {
+        monthlyGross: number;
+        hostFees: number;
+        serviceFees: number;
+        totalFees: number;
+        monthlyNet: number;
+      };
+    };
+  } | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [emailSubmitted, setEmailSubmitted] = useState(false);
 
-  const calculateEarnings = (data: any) => {
+  const calculateEarnings = (data: {
+    zipCode: string;
+    bedrooms: string;
+    bathrooms: string;
+    squareFootage: string;
+    propertyType: string;
+    amenities: string[];
+  }) => {
     // Get rental rate data for the ZIP code
     const rentalRate = getRentalRateByZip(data.zipCode);
     
@@ -140,7 +169,7 @@ const EarningsEstimator = () => {
     };
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     // Validate email and phone
@@ -174,7 +203,6 @@ const EarningsEstimator = () => {
       const earnings = calculateEarnings(formData);
       setEstimate(earnings);
       setEmailSubmitted(true);
-      setShowEstimate(true);
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Failed to submit form. Please try again.');
@@ -183,7 +211,7 @@ const EarningsEstimator = () => {
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -305,6 +333,24 @@ const EarningsEstimator = () => {
                           className="mt-1"
                         />
                       </div>
+
+                      <div className="relative">
+                        <label className="text-sm font-medium flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V8z" clipRule="evenodd" />
+                          </svg>
+                          Square Footage
+                        </label>
+                        <Input
+                          type="number"
+                          name="squareFootage"
+                          value={formData.squareFootage}
+                          onChange={handleInputChange}
+                          min="0"
+                          className="mt-1"
+                          placeholder="e.g., 1200"
+                        />
+                      </div>
                     </div>
                   </div>
 
@@ -348,7 +394,7 @@ const EarningsEstimator = () => {
                       </div>
                     </div>
                     <p className="text-xs text-gray-500">
-                      We'll send your detailed earnings report to this email address.
+                      We&apos;ll send your detailed earnings report to this email address.
                     </p>
                   </div>
 
@@ -628,7 +674,7 @@ const EarningsEstimator = () => {
                       <p className="text-sm text-gray-600">Property Owner in Denver</p>
                     </div>
                   </div>
-                  <p className="text-gray-700">"Switched from short-term rentals to Furnished Finder and doubled my net income. The longer stays mean less work for me too!"</p>
+                  <p className="text-gray-700">&ldquo;Switched from short-term rentals to Furnished Finder and doubled my net income. The longer stays mean less work for me too!&rdquo;</p>
                 </CardContent>
               </Card>
 
@@ -643,7 +689,7 @@ const EarningsEstimator = () => {
                       <p className="text-sm text-gray-600">Property Owner in Austin</p>
                     </div>
                   </div>
-                  <p className="text-gray-700">"The quality of tenants is outstanding. Having healthcare professionals as long-term guests gives me peace of mind."</p>
+                  <p className="text-gray-700">&ldquo;The quality of tenants is outstanding. Having healthcare professionals as long-term guests gives me peace of mind.&rdquo;</p>
                 </CardContent>
               </Card>
 
@@ -658,7 +704,7 @@ const EarningsEstimator = () => {
                       <p className="text-sm text-gray-600">Property Owner in Seattle</p>
                     </div>
                   </div>
-                  <p className="text-gray-700">"The flat annual fee makes such a difference in my profits. No more watching my earnings disappear to booking fees!"</p>
+                  <p className="text-gray-700">&ldquo;The flat annual fee makes such a difference in my profits. No more watching my earnings disappear to booking fees!&rdquo;</p>
                 </CardContent>
               </Card>
             </div>
