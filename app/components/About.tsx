@@ -35,7 +35,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="pt-8 flex justify-center">
+            <div className="pt-8 flex flex-col items-center space-y-6">
               <Link
                 href="mailto:marse.obell@yahoo.com; david.eagan@gmail.com"
                 className="inline-flex items-center bg-gray-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors"
@@ -55,6 +55,17 @@ export default function About() {
                 </svg>
                 Contact Us
               </Link>
+              
+              <div className="text-center">
+                <img 
+                  src="/spacex.jpg" 
+                  alt="SpaceX Starship Base" 
+                  className="w-full max-w-md mx-auto rounded-lg shadow-lg"
+                />
+                <p className="mt-4 text-gray-600 text-sm italic">
+                  Host Joseph O'Bell breaking ground on starship base
+                </p>
+              </div>
             </div>
           </div>
         </div>
